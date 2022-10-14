@@ -1,14 +1,8 @@
-/**
- * @author sergi.grau@fje.edu
- * @version 1.0 1.1.2010
- * @version 2.0 13.10.2022
- */
 public class m01_Fils {
-
     public static void main(String[] args) {
 
         Runnable runnable1 = new m01_FilLletres("fil1");
-        Runnable runnable2 = new m01_FilNumeros("fil2");
+        Runnable runnable2 = new m01_Filnumeros("fil2");
 
         Thread fil1 = new Thread(runnable1);
         Thread fil2 = new Thread(runnable2);
@@ -19,5 +13,3 @@ public class m01_Fils {
         fil2.start();
     }
 }
-
-
