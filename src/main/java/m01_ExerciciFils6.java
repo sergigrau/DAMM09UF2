@@ -1,6 +1,6 @@
 
 
-public class ExerciciFils6 {
+public class m01_ExerciciFils6 {
 
 	private static Runnable runnable1= new Fil("fil1");
 	private static Runnable runnable2= new Fil("fil2");
@@ -45,12 +45,8 @@ public class ExerciciFils6 {
 		public void run() {
 			for (int i = 0; i < 1000; i++) {
 				System.out.println(i + "-" + nom);
-				
 			}
 			System.out.println("final" + nom);
-
-			
 		}
-
 	}
 }

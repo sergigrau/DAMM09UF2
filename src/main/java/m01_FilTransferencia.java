@@ -1,12 +1,12 @@
-public class FilTransferencia implements Runnable {
+public class m01_FilTransferencia implements Runnable {
 
-	private Banc banc;
+	private m01_Banc banc;
 	private int compteOrigen;
 	private double quantitatMaxima;
 	private int DEMORA = 10;
 
 
-	public FilTransferencia(Banc b, int origen, double max) {
+	public m01_FilTransferencia(m01_Banc b, int origen, double max) {
 		banc = b;
 		compteOrigen = origen;
 		quantitatMaxima = max;

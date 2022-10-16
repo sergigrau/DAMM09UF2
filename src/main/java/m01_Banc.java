@@ -1,19 +1,12 @@
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-/**
- * Classe que representa un banc amb un determinat nombre de comptes
- * 
- * @author sergi grau
- * @version 1.0, 01.02.2010
- * 
- */
-public class Banc {
+public class m01_Banc {
 
 	private final double[] comptes;
 	private Lock bancLock = new ReentrantLock(); //opci� 1 de sincronitzaci�
 
-	public Banc(int nombreComptes, double saldoInicial) {
+	public m01_Banc(int nombreComptes, double saldoInicial) {
 		comptes = new double[nombreComptes];
 		for (int i = 0; i < comptes.length; i++) {
 			comptes[i] = saldoInicial;

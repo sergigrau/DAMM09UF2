@@ -1,12 +1,4 @@
-/**
- * Classe que crea dos fils i els executa. S'executen concurrentment
- *  
- * @author sergi grau
- * @version 1.0, 28.01.2010
- * 
- */
-
-public class ExerciciFils3 {
+public class m01_ExerciciFils3 {
 	
 	private static Runnable runnable1= new Fil("fil1");
 	private static Runnable runnable2= new Fil("fil2");
@@ -20,21 +12,10 @@ public class ExerciciFils3 {
 		fil2.start(); //no run()
 	}
 
-	/**
-	 * Classe interna est�tica que implementa la interf�cie Runnable
-	 * Representa un fil que escriu 1000 digits i
-	 * acaba. 
-	 * 
-	 * @author sergi grau
-	 * @version 1.0, 28.01.2010
-	 */
 	public static class Fil implements Runnable {
 
 		private String nom;
-		/**
-		 * Constructor amb 1 par�metre
-		 * @param nom nom del fil
-		 */
+
 		public Fil(String nom){
 			this.nom= nom;
 		}
@@ -48,7 +29,6 @@ public class ExerciciFils3 {
 			}
 			System.out.println("final" + nom);
 
-			
 		}
 
 	}
