@@ -15,7 +15,7 @@ public class m03_JoinDeResultats {
         m02_Pomer[] pomers = m02_Pomer.crearArbres(12);
         ForkJoinPool pool = ForkJoinPool.commonPool();
 
-        TascarRecollirFruites tasca = new TascarRecollirFruites(pomers, 0, pomers.length - 1);
+        TascaRecollirFruites tasca = new TascaRecollirFruites(pomers, 0, pomers.length - 1);
         int resultat = pool.invoke(tasca);
 
         System.out.println();
@@ -26,7 +26,7 @@ public class m03_JoinDeResultats {
      * Classe interna que implementa una tasca Recursiva i que representa
      * el fet de recollir les pomes, hereta de ForkJoinTask
      */
-    public static class TascarRecollirFruites extends RecursiveTask<Integer> {
+    public static class TascaRecollirFruites extends RecursiveTask<Integer> {
 
         private final m02_Pomer[] pomers;
         private final int iniciInc;
@@ -34,7 +34,7 @@ public class m03_JoinDeResultats {
 
         private final int llindarTasques = 4;
 
-        public TascarRecollirFruites(m02_Pomer[] pomers, int iniciInc, int finalExc) {
+        public TascaRecollirFruites(m02_Pomer[] pomers, int iniciInc, int finalExc) {
             this.pomers = pomers;
             this.iniciInc = iniciInc;
             this.finalExc = finalExc;
@@ -47,8 +47,8 @@ public class m03_JoinDeResultats {
             }
             int puntMig = iniciInc + (finalExc - iniciInc) / 2;
 
-            TascarRecollirFruites recollirEsquerra = new TascarRecollirFruites(pomers, iniciInc, puntMig);
-            TascarRecollirFruites recollirDreta = new TascarRecollirFruites(pomers, puntMig + 1, finalExc);
+            TascaRecollirFruites recollirEsquerra = new TascaRecollirFruites(pomers, iniciInc, puntMig);
+            TascaRecollirFruites recollirDreta = new TascaRecollirFruites(pomers, puntMig + 1, finalExc);
 
             recollirDreta.fork(); // realitzat de manera asíncrona
 
@@ -62,5 +62,4 @@ public class m03_JoinDeResultats {
                     .sum();
         }
     }
-
 }
