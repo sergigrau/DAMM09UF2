@@ -15,7 +15,7 @@ public class m04_RecursiveAction {
 		m02_Pomer[] pomers = m02_Pomer.crearArbres(12);
 		ForkJoinPool pool = ForkJoinPool.commonPool();
 		long tempsInicial = System.currentTimeMillis();
-		m03_JoinDeResultats.TascaRecollirFruites tasca = new m03_JoinDeResultats.TascaRecollirFruites(pomers, 0, pomers.length - 1);
+		AccioRecollirFruites tasca = new AccioRecollirFruites(pomers, 0, pomers.length - 1);
 		//espera a que es completi la tasca per a continuar el codi
 		pool.invoke(tasca);
 		//execute -> execució asíncrona, hem d'esperar amb join el finals del fils
@@ -29,11 +29,9 @@ public class m04_RecursiveAction {
 	}
 
 	public static class AccioRecollirFruites extends RecursiveAction {
-
 		private final m02_Pomer[] pomers;
 		private final int iniciInc;
 		private final int finalExc;
-
 		private final int llindarTasques = 4;
 
 		public AccioRecollirFruites(m02_Pomer[] pomers, int iniciInc, int finalExc) {
@@ -44,9 +42,9 @@ public class m04_RecursiveAction {
 
 		@Override
 		protected void compute() {
-
 			if (finalExc - iniciInc < llindarTasques) {
 				accioAfer();
+				return;
 			}
 			int puntMig = iniciInc + (finalExc - iniciInc) / 2;
 
@@ -54,13 +52,13 @@ public class m04_RecursiveAction {
 			AccioRecollirFruites recollirDreta = new AccioRecollirFruites(pomers, puntMig + 1, finalExc);
 
 			recollirDreta.fork(); // realitzat de manera asíncrona
-
 			recollirEsquerra.compute();// realitzat de manera asíncrona immediatament en el fil actual
 			recollirDreta.join();
 
 		}
 
 		protected void accioAfer() {
+			System.out.printf("Fil treballant\n");
 			IntStream.rangeClosed(iniciInc, finalExc)//
 					.forEach(i -> pomers[i].recollirPomes());
 

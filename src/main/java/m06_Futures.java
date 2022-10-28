@@ -7,12 +7,10 @@ import java.util.concurrent.*;
  * @version 1.0 20.10.2022
  */
 public class m06_Futures {
-
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
 		demoFutureAmbCallable();
 		demoCallableVsRunnable();
 	}
-
 	public static void demoFutureAmbCallable() throws InterruptedException, ExecutionException {
 		System.out.println();
 		System.out.println("Demo Future amb Callable");

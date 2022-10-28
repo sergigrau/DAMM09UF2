@@ -48,10 +48,10 @@ public class m02_Pomer {
     }
     private String toLabel(String nomThread) {
         HashMap<String, String> threadNomEtiqueta = new HashMap<>();
-        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-1", "Sergi");
-        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-2", "Joan");
-        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-3", "Carles");
-        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-4", "Anna");
+        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-1", "Fil - Sergi");
+        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-2", "Fil -Joan");
+        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-3", "Fil -Carles");
+        threadNomEtiqueta.put("ForkJoinPool.commonPool-worker-4", "Fil -Anna");
 
         return threadNomEtiqueta.getOrDefault(nomThread, nomThread);
     }
